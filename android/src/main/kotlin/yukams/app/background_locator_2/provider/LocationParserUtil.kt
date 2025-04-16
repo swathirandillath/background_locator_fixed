@@ -29,6 +29,16 @@ class LocationParserUtil {
                     Keys.ARG_HEADING to location.bearing,
                     Keys.ARG_TIME to location.time.toDouble(),
                     Keys.ARG_PROVIDER to location.provider,
+                    Keys.ARG_IS_MOCKED to (isMocked ?: false), // Ensure non-null boolean
+                    Keys.ARG_LATITUDE to (location.latitude ?: 0.0), // Ensure non-null double
+                    Keys.ARG_LONGITUDE to (location.longitude ?: 0.0),
+                    Keys.ARG_ACCURACY to (location.accuracy ?: 0.0),
+                    Keys.ARG_ALTITUDE to (location.altitude ?: 0.0),
+                    Keys.ARG_SPEED to (location.speed ?: 0.0),
+                    Keys.ARG_SPEED_ACCURACY to (speedAccuracy ?: 0.0),
+                    Keys.ARG_HEADING to (location.bearing ?: 0.0),
+                    Keys.ARG_TIME to (location.time?.toDouble() ?: 0.0), // Ensure non-null conversion
+                    Keys.ARG_PROVIDER to (location.provider ?: "unknown") // Default value for nullable String
             )
         }
 
